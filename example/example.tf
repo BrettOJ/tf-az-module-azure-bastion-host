@@ -41,7 +41,7 @@ module "azure_subnet" {
   tags                   = local.tags
   create_nsg             = var.create_nsg
   subnets = {
-    001 = {
+    1 = {
       address_prefixes                          = ["10.0.1.0/24"]
       service_endpoints                         = null
       private_endpoint_network_policies_enabled = null
@@ -193,9 +193,9 @@ module "azure_bastion_host" {
   resource_group_name = module.resource_groups.rg_output.1.name
   naming_convention_info = local.naming_convention_info
 
-  ip_configuration ={
+  ip_configuration = {
     name                 = "bastion-test-ip-config"
-    subnet_id            = azurerm_subnet.bastion-test.id
+    subnet_id            = module.azure_subnet.snet_output[1].id
     public_ip_address_id = azurerm_public_ip.bastion-test.id
   }
 }

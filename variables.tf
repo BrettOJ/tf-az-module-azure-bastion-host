@@ -35,11 +35,11 @@ variable "sku" {
 
 variable "ip_configuration" {
     description = "(Required) A ip_configuration block as defined below. Changing this forces a new resource to be created."
-    type = list(object({
+    type = object ({
         name = string
         subnet_id = string
         public_ip_address_id = string
-    }))
+    })
 }
   
 variable "ip_connect_enabled" {
