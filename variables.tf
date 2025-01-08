@@ -72,5 +72,12 @@ variable "tags" {
     default = {}
 }
 
-
+variable "naming_convention_info" {
+  type = object({
+    name = string
+    site = string
+    env  = string
+    app  = string
+  })
+}
 

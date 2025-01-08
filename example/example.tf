@@ -191,6 +191,7 @@ module "azure_bastion_host" {
   name = "bastion-test"
   location            = var.location
   resource_group_name = module.resource_groups.rg_output.1.name
+  naming_convention_info = local.naming_convention_info
 
   ip_configuration ={
     name                 = "bastion-test-ip-config"
